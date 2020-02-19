@@ -65,27 +65,27 @@ $(document).ready(function () {
     	success: function(result){  
     		
     		console.log(result);
-    		
+    		for($i=0; $i<result.length; $i++){
     		newrowImg="";
 	 	    	newrowImg="<div class='col-lg-4 col-xs-12  text-center'>" +
 		 	    				"<div id='card' class='box'> " +
 		 	    				"<div class='top'>"+
 		 	    				"<ul>"+
-		 	    				"<li ><a id='aaa' ><i class='fa fa-star-o fa-2x' aria-hidden='true'></i></a></li>"+
+		 	    				"<li ><a id='aaa' ><i id='bbb' class='fa fa-star-o fa-2x' aria-hidden='true'></i></a></li>"+
 		 	    				"<li><a href='#'><i class='fa fa-shopping-basket fa-2x' aria-hidden='true'></i>"+            
 								"</a></li>"+
 							    "</ul>"+
 							    "</div>"+
 							    "<div data-toggle='modal' data-target='#myModal'>"+
-		 	    					"<img src='images/"+result[0].pic+"'/>"+
+		 	    					"<img src='images/"+result[$i].pic+"'/>"+
 		 	    						"<div class='box-title'>"+
-		 	    							"<h3>"+result[0].title+"</h3>"+
+		 	    							"<h3>"+result[$i].title+"</h3>"+
 		 	    						"</div>"+
 		 	    						"<div class='box-text'>"+
-		 									"<span>Eguna: "+result[0].eventDay+"</span>"+
+		 									"<span>Eguna: "+result[$i].eventDay+"</span>"+
 		 									"</br>"+
 		 									"</br>"+
-	 										"<span>Hasi: "+result[0].eventStart+" Amaitu: "+result[0].eventEnd+"</span>"+
+	 										"<span>Hasi: "+result[$i].eventStart+" Amaitu: "+result[$i].eventEnd+"</span>"+
 	 									"</div>"+
 		 								"<div class='box-btn'>"+
 		 							    	"<a>Learn More</a>"+
@@ -95,7 +95,7 @@ $(document).ready(function () {
 		 	    		"</div>";
 	    	   
 	    	 $("#cards").append(newrowImg);
-
+    		}
 		},
        	error : function(xhr) {
    			alert("An error occured: " + xhr.status + " " + xhr.statusText);
@@ -122,9 +122,9 @@ $(document).ready(function () {
 	
 });
 $('body').on('click', '#aaa', function(){
-
+	//$("#bbb").css("color", "yellow");
 	
-	alert("asdsad");
+	//alert("asdsad");
 });
 
 
