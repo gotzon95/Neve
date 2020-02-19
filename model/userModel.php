@@ -4,7 +4,7 @@ include_once 'connect_data.php';
 class userModel extends userClass{
     
     private $link;
- 
+    private $list=array();
     public function OpenConnect()
     {
     $konDat=new connect_data();
@@ -54,6 +54,52 @@ class userModel extends userClass{
         mysqli_free_result($result);
         $this->CloseConnect();
    
+    }
+    public function setUsersList()
+    {
+        
+        
+        $this->OpenConnect();
+        
+        
+        
+        $sql="call spAllUsers()";
+        $result= $this->link->query($sql);
+        
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        {
+            $user= new userModel();
+            $user->setIdUser($row['idUser']);
+            $user->setUsername($row['username']);
+            $user->setPassword($row['password']);
+            $user->setName($row['name']);
+            $user->setSurname($row['surname']);
+            $user->setAdmin($row['admin']);
+            
+            
+            array_push($this->list,$user);
+            
+        }
+        
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        
+        
+        
+    }
+    function getArrUsers()
+    {
+        
+        $arr=array();
+        
+        foreach ($this->list as $object)
+        {
+            $vars = $object->getObjectVars();
+            
+            
+            array_push($arr, $vars);
+        }
+        return $arr;
     }
 
 }

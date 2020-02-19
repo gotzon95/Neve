@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body{
+    background: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+}
+
+h3{
+    font-family: 'Poppins', sans-serif;
+}
+#tablaAdmin{
+    width: 90%;
+    margin: auto;
+}
+#botones{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.btnFunction{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.table{
+    width: auto;
+    margin: auto;
+}
