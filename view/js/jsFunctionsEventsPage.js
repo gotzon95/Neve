@@ -1,33 +1,33 @@
 jQuery(function ($) {
 
-    $(".sidebar-dropdown > a").click(function() {
-  $(".sidebar-submenu").slideUp(200);
-  if (
-    $(this)
-      .parent()
-      .hasClass("active")
-  ) {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .parent()
-      .removeClass("active");
-  } else {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .next(".sidebar-submenu")
-      .slideDown(200);
-    $(this)
-      .parent()
-      .addClass("active");
-  }
-});
+	$(".sidebar-dropdown > a").click(function () {
+		$(".sidebar-submenu").slideUp(200);
+		if (
+			$(this)
+				.parent()
+				.hasClass("active")
+		) {
+			$(".sidebar-dropdown").removeClass("active");
+			$(this)
+				.parent()
+				.removeClass("active");
+		} else {
+			$(".sidebar-dropdown").removeClass("active");
+			$(this)
+				.next(".sidebar-submenu")
+				.slideDown(200);
+			$(this)
+				.parent()
+				.addClass("active");
+		}
+	});
 
-$("#close-sidebar").click(function() {
-  $(".page-wrapper").removeClass("toggled");
-});
-$("#show-sidebar").click(function() {
-  $(".page-wrapper").addClass("toggled");
-});
+	$("#close-sidebar").click(function () {
+		$(".page-wrapper").removeClass("toggled");
+	});
+	$("#show-sidebar").click(function () {
+		$(".page-wrapper").addClass("toggled");
+	});
 });
 
 
@@ -94,7 +94,9 @@ $(document).ready(function () {
            			 									"</div>"+
            				 								"<div class='box-btn'>"+
            				 							    	"<a>Learn More</a>"+
-           				 							    "</div>"+
+															"</div>"+
+															"<button id='btnEventUpdate' type='button' data='"+result[$i].id+"' class='btn btn-warning'>Editar</button>" +
+															"<button id='btnEventDelete' type='button' data='"+result[$i].id+"' class='btn btn-danger'>Borrar</button>" +
            				 							   "</div>" +	
            				 							
            				 							   
@@ -172,25 +174,47 @@ $(document).ready(function () {
 	
 	
 	
-	
-	
-	$("#logout").click(function(){
-			
-			$.ajax({
-				
-		       	url: "../controller/cLogout.php", 
-		    	success: function(result){  
-		    		
-		    		window.location.href="../index.html";
-				},
-		       	error : function(xhr) {
-		   			alert("An error occured: " + xhr.status + " " + xhr.statusText);
-		   		}
-			});
 	});
+	// $("#btnEventDelete").click(function () {
+	// 	alert("hola");
+	// 	id=$(this).getAttribute("data");
+	// 	alert(id);
 	
+	// });
+	$('body').on('click', '#btnEventDelete', function () {
+		
+		id=$(this).attr("data");
+		$.ajax({
+			type: "GET",
+			data: { 'id': id },
+			url: "../controller/cDeleteEvents.php",
+			dataType: "text",
+			success: function (response) {
 	
-});
+				console.log(response);
+				location.reload(true);
+				alert("eliminado correctamente");
+			},
+			error: function (xhr) {
+				alert("An error occured: " + xhr.status + " " + xhr.statusText);
+			}
+		});
+	});
+
+	$("#logout").click(function () {
+
+		$.ajax({
+
+			url: "../controller/cLogout.php",
+			success: function (result) {
+
+				window.location.href = "../index.html";
+			},
+			error: function (xhr) {
+				alert("An error occured: " + xhr.status + " " + xhr.statusText);
+			}
+		});
+	});
 
 
 
