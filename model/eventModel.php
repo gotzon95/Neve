@@ -75,5 +75,25 @@ class eventModel extends eventClass{
         }
         return $arr;
     }
+    function delete()
+    {
+        $this->OpenConnect();  // konexio zabaldu  - abrir conexión
+        
+        $id=$this->getId();
+        
+        $sql="CALL spDeleteEvent($id)";
+        
+        $numFilas=$this->link->query($sql);
+        
+        if ($numFilas>=1)
+        {
+            echo "borrado";
+        } else {
+            echo "Error al borrar";
+        }
+        $this->CloseConnect();
+        
+      
     
+        }
 }
