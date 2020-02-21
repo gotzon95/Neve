@@ -40,14 +40,12 @@
 					</div>
 				</div>
 				<div class="sidebar-header">
-					<div class="user-pic">
-						<img class="img-responsive img-rounded"
-							src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-							alt="User picture">
+					<div id="irudia" class="user-pic">
+						
 					</div>
 					<div class="user-info">
-						<span class="user-name">Jhon <strong>Smith</strong>
-						</span> <span class="user-role">Administrator</span> <span
+						<span id="name" class="user-name">Jhon Smith
+						</span> <span class="user-role">Usuario</span> <span
 							class="user-status"> <i class="fa fa-circle"></i> <span>Online</span>
 						</span>
 					</div>
@@ -69,48 +67,19 @@
 				<!-- sidebar-search  -->
 				<div class="sidebar-menu">
 					<ul>
-						<li class="header-menu"><span>General</span></li>
-						<li class="sidebar-dropdown"><a href="#"> <i
-								class="fa fa-tachometer-alt"></i> <span>Dashboard</span> <span
-								class="badge badge-pill badge-warning">New</span>
-						</a>
-							<div class="sidebar-submenu">
-								<ul>
-									<li><a href="#">Dashboard 1 <span
-											class="badge badge-pill badge-success">Pro</span>
-									</a></li>
-									<li><a href="#">Dashboard 2</a></li>
-									<li><a href="#">Dashboard 3</a></li>
-								</ul>
-							</div></li>
-						<li class="sidebar-dropdown"><a href="#"> <i
-								class="fa fa-shopping-cart"></i> <span>E-commerce</span> <span
-								class="badge badge-pill badge-danger">3</span>
-						</a>
-							<div class="sidebar-submenu">
-								<ul>
-									<li><a href="#">Products </a></li>
-									<li><a href="#">Orders</a></li>
-									<li><a href="#">Credit cart</a></li>
-								</ul>
-							</div></li>
-
-						<li class="sidebar-dropdown"><a href="#"> <i
-								class="fa fa-globe"></i> <span>Maps</span>
-						</a>
-							<div class="sidebar-submenu">
-								<ul>
-									<li><a href="#">Google maps</a></li>
-									<li><a href="#">Open street map</a></li>
-								</ul>
-							</div></li>
-						<li class="header-menu"><span>Extra</span></li>
-						<li><a href="#"> <i class="fa fa-book"></i> <span>Documentation</span>
+						
+						
+						<li><a href="#"> <i class="fa fa-calendar"></i> <span>Gertaerak</span>
 								<span class="badge badge-pill badge-primary">Beta</span>
 						</a></li>
-						<li><a href="#"> <i class="fa fa-calendar"></i> <span>Calendar</span>
+						<li><a href="#"> <i class="fa fa-users"></i> <span>Lagunak</span>
+						<span class="badge badge-pill badge-primary">Beta</span>
 						</a></li>
-						<li><a href="#"> <i class="fa fa-folder"></i> <span>Examples</span>
+						<li><a href="#"> <i class="fa fa-map"></i> <span>Mapak</span>
+						<span class="badge badge-pill badge-primary">Beta</span>
+						</a></li>
+						<li><a href="#"> <i class="fa fa-star"></i> <span>Gogokoak</span>
+						<span class="badge badge-pill badge-primary">Beta</span>
 						</a></li>
 					</ul>
 				</div>
@@ -139,30 +108,6 @@
 					<div id="cards" class="row">
 
 
-
-						
-
-						<!--  
-
-						<div data-toggle='modal' data-target='#myModal' class="col-lg-4 col-xs-12 text-center">
-							<div class="box">
-								<i class="fa fa-github fa-3x" aria-hidden="true"></i>
-								<div class="box-title">
-									<h3>Github</h3>
-								</div>
-								<div class="box-text">
-									<span>Lorem ipsum dolor sit amet, id quo eruditi
-										eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui
-										ad.</span>
-								</div>
-								<div class="box-btn">
-									<a href="#">Learn More</a>
-								</div>
-							</div>
-						</div>
-						-->
-						
-
 					</div>
 				</div>
 			</div>
@@ -174,41 +119,145 @@
 	<!-- page-wrapper -->
 	
 	
-	<div class="modal fade right" id="myModal" tabindex="-1" role="dialog"
-  aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
-  <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+<!--Modal: modalYT-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+
     <!--Content-->
     <div class="modal-content">
-      <!--Header-->
-      <div class="modal-header">
-        <p class="heading">Related article</p>
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="white-text">&times;</span>
-        </button>
-      </div>
 
       <!--Body-->
+      <div id="video" class="modal-body mb-0 p-0">
+
+        
+
+      </div>
+      
+      
       <div class="modal-body">
-
         <div class="row">
-          <div class="col-5">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(55).jpg"
-              class="img-fluid" alt="">
+          <div class="col-lg-5">
+            <!--Carousel Wrapper-->
+            <div id="modalImg" class="carousel-item active">
+                 
+                </div>
+            <!--/.Carousel Wrapper-->
           </div>
+          <div class="col-lg-7">
+            <h2 class="h2-responsive product-name">
+              <strong>Berri Txarrak</strong>
+            </h2>
+            
 
-          <div class="col-7">
-            <p><strong>My travel to paradise</strong></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit [...]</p>
-            <button type="button" class="btn btn-info btn-md">Read more</button>
+            <!--Accordion wrapper-->
+            <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 
+              <!-- Accordion card -->
+              <div class="card">
+
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="headingOne1">
+                  <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="false"
+                    aria-controls="collapseOne1">
+                    <h5 class="mb-0">
+                      Datuak <i class="fas fa-angle-down rotate-icon"></i>
+                    </h5>
+                  </a>
+                </div>
+
+                <!-- Card body -->
+                <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1"
+                  data-parent="#accordionEx">
+                  <div id="datuak" class="card-body">
+                   <div id="lekua"></div>
+                   <div id="eguna"></div>
+                   <div id="hasi"></div>
+                   <div id="amaitu"></div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- Accordion card -->
+
+              <!-- Accordion card -->
+              <div class="card">
+
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="headingTwo2">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                    aria-expanded="false" aria-controls="collapseTwo2">
+                    <h5 class="mb-0">
+                      Deskripzioa <i class="fas fa-angle-down rotate-icon"></i>
+                    </h5>
+                  </a>
+                </div>
+
+                <!-- Card body -->
+                <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                  data-parent="#accordionEx">
+                  
+                </div>
+
+              </div>
+              <!-- Accordion card -->
+
+
+
+            </div>
+            <!-- Accordion wrapper -->
+
+
+            <!-- Add to Cart -->
+            <div class="card-body">
+              
+              <div class="text-center">
+
+                
+                <button class="btn btn-primary">Sarrerak Erosi
+                  <i class="fas fa-cart-plus ml-2" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.Add to Cart -->
           </div>
         </div>
       </div>
+      
+      
+      
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center flex-column flex-md-row">
+        <span class="mr-4">Siguenos!</span>
+        <div>
+          <a type="button" class="btn-floating btn-sm btn-fb">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <!--Twitter-->
+          <a type="button" class="btn-floating btn-sm btn-tw">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <!--Google +-->
+          <a type="button" class="btn-floating btn-sm btn-gplus">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+          <!--Linkedin-->
+          <a type="button" class="btn-floating btn-sm btn-ins">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+      </div>
+
     </div>
     <!--/.Content-->
+
   </div>
 </div>
+<!--Modal: modalYT-->
 
 
 	<script

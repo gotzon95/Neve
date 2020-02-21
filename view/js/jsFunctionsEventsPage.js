@@ -37,9 +37,24 @@ $(document).ready(function () {
        	url: "../controller/cLoggedVerify.php", 
        	dataType:"json",
     	success: function(response){ 
-    		
+    		var admin= response.admin;
     		console.log(response);
-    		
+    		 name="";
+	    		$("#name").empty();
+	    		name=response.username;
+	    			
+		    $("#name").append(name);
+		    
+		    
+		    irudia="";
+    		$("#irudia").empty();
+    		irudia=" <img class='img-responsive img-rounded' src='images/"+response.pic+"' alt='User picture'>";
+    			
+    		$("#irudia").append(irudia);
+		    
+		    
+		   
+		    	 
        		if (response.err === "error")
        		{
        			
@@ -48,9 +63,102 @@ $(document).ready(function () {
        			
        		} else {
        			
-       			
+       			$.ajax({
+       				type:"GET",
+       		       	url: "../controller/cEvents.php", 
+       		    	dataType:"json",
+       		    	success: function(result){  
+       		    		if(admin==1){
+       		    			console.log(result);
+           		    		for($i=0; $i<result.length; $i++){
+           		    		newrowImg="";
+           			 	    	newrowImg="<div class='col-lg-4 col-xs-12  text-center'>" +
+           				 	    				"<div id='card' class='box'> " +
+           				 	    				"<div class='top'>"+
+           				 	    				"<ul>"+
+           				 	    				"<li ><a id='fav' ><i id='"+result[$i].id+"' class='fas fa-star fa-2x' aria-hidden='true'></i></a></li>"+
+           				 	    				"<li><a id='share' href='#'><i class='fas fa-share fa-2x' aria-hidden='true'></i>"+            
+           										"</a></li>"+
+           									    "</ul>"+
+           									    "</div>"+
+           									    "<div id='ccc' data-toggle='modal' data-target='#myModal' data-id='"+result[$i].id+"'>"+
+           				 	    					"<img src='images/"+result[$i].banner+"'/>"+
+           				 	    						"<div class='box-title'>"+
+           				 	    							"<h3>"+result[$i].title+"</h3>"+
+           				 	    						"</div>"+
+           				 	    						"<div class='box-text'>"+
+           				 									"<span>Eguna: "+result[$i].eventDay+"</span>"+
+           				 									"</br>"+
+           				 									"</br>"+
+           			 										"<span>Hasi: "+result[$i].eventStart+" Amaitu: "+result[$i].eventEnd+"</span>"+
+           			 									"</div>"+
+           				 								"<div class='box-btn'>"+
+           				 							    	"<a>Learn More</a>"+
+           				 							    "</div>"+
+           				 							   "</div>" +	
+           				 							
+           				 							   
+           				 							   
+           				 	    				"</div>" +
+           				 	    				
+           				 	    		"</div>";
+           			    	   
+           			    	 $("#cards").append(newrowImg);
+           		    		}
+       		    		}else{
+       		    			
+       		    			console.log(result);
+           		    		for($i=0; $i<result.length; $i++){
+           		    		newrowImg="";
+           			 	    	newrowImg="<div class='col-lg-4 col-xs-12  text-center'>" +
+           				 	    				"<div id='card' class='box'> " +
+           				 	    				"<div class='top'>"+
+           				 	    				"<ul>"+
+           				 	    				"<li ><a id='fav' ><i id='"+result[$i].id+"' class='fas fa-star fa-2x' aria-hidden='true'></i></a></li>"+
+           				 	    				"<li><a id='share' href='#'><i class='fas fa-share fa-2x' aria-hidden='true'></i>"+            
+           										"</a></li>"+
+           									    "</ul>"+
+           									    "</div>"+
+           									    "<div id='ccc' data-toggle='modal' data-target='#myModal' data-id='"+result[$i].id+"'>"+
+           				 	    					"<img src='images/"+result[$i].banner+"'/>"+
+           				 	    						"<div class='box-title'>"+
+           				 	    							"<h3>"+result[$i].title+"</h3>"+
+           				 	    						"</div>"+
+           				 	    						"<div class='box-text'>"+
+           				 									"<span>Eguna: "+result[$i].eventDay+"</span>"+
+           				 									"</br>"+
+           				 									"</br>"+
+           			 										"<span>Hasi: "+result[$i].eventStart+" Amaitu: "+result[$i].eventEnd+"</span>"+
+           			 									"</div>"+
+           				 								"<div class='box-btn'>"+
+           				 							    	"<a>Learn More</a>"+
+           				 							    "</div>"+
+           				 							   "</div>" +	
+           				 	    				"</div>" +
+           				 	    		"</div>";
+           			    	   
+           			    	 $("#cards").append(newrowImg);
+           		    		}
+       		    			
+       		    			
+       		    		}
+       		    		
+       		    		
+       		    		
+       		    		
+       		    		
+       				},
+       		       	error : function(xhr) {
+       		   			alert("An error occured: " + xhr.status + " " + xhr.statusText);
+       		   		}
+       			});
        			
        		}	
+       		
+       		
+       		
+       		
+       		
 		},
        	error : function(xhr) {
    			alert("An error occured: " + xhr.status + " " + xhr.statusText);
@@ -58,49 +166,11 @@ $(document).ready(function () {
 	});   
 	
 	
-	$.ajax({
-		type:"GET",
-       	url: "../controller/cEvents.php", 
-    	dataType:"json",
-    	success: function(result){  
-    		
-    		console.log(result);
-    		for($i=0; $i<result.length; $i++){
-    		newrowImg="";
-	 	    	newrowImg="<div class='col-lg-4 col-xs-12  text-center'>" +
-		 	    				"<div id='card' class='box'> " +
-		 	    				"<div class='top'>"+
-		 	    				"<ul>"+
-		 	    				"<li ><a id='aaa' ><i id='bbb' class='fa fa-star-o fa-2x' aria-hidden='true'></i></a></li>"+
-		 	    				"<li><a href='#'><i class='fa fa-shopping-basket fa-2x' aria-hidden='true'></i>"+            
-								"</a></li>"+
-							    "</ul>"+
-							    "</div>"+
-							    "<div data-toggle='modal' data-target='#myModal'>"+
-		 	    					"<img src='images/"+result[$i].pic+"'/>"+
-		 	    						"<div class='box-title'>"+
-		 	    							"<h3>"+result[$i].title+"</h3>"+
-		 	    						"</div>"+
-		 	    						"<div class='box-text'>"+
-		 									"<span>Eguna: "+result[$i].eventDay+"</span>"+
-		 									"</br>"+
-		 									"</br>"+
-	 										"<span>Hasi: "+result[$i].eventStart+" Amaitu: "+result[$i].eventEnd+"</span>"+
-	 									"</div>"+
-		 								"<div class='box-btn'>"+
-		 							    	"<a>Learn More</a>"+
-		 							    "</div>"+
-		 							   "</div>" +	
-		 	    				"</div>" +
-		 	    		"</div>";
-	    	   
-	    	 $("#cards").append(newrowImg);
-    		}
-		},
-       	error : function(xhr) {
-   			alert("An error occured: " + xhr.status + " " + xhr.statusText);
-   		}
-	});
+	
+	
+	
+	
+	
 	
 	
 	
@@ -121,10 +191,74 @@ $(document).ready(function () {
 	
 	
 });
-$('body').on('click', '#aaa', function(){
-	//$("#bbb").css("color", "yellow");
-	
-	//alert("asdsad");
+
+
+
+$('body').on('click', '#ccc', function(){
+	var id=$(this).data("id");
+	$.ajax({
+		type:"GET",
+		data: { "id": id},
+       	url: "../controller/cEventModal.php", 
+    	dataType:"json",
+    	success: function(result){  
+    		console.log(result[0].video);
+    		//console.log(result);
+    		
+    		
+    		
+    		newrowVideo="";
+    		$("#video").empty();
+    		newrowVideo=
+    		"<div class='embed-responsive embed-responsive-16by9 z-depth-1-half'>"+
+    		 "<iframe class='embed-responsive-item' src='"+result[0].video+"' allowfullscreen></iframe>"+
+ 	         "</div>"+
+ 	         "<hr><hr>";
+    		
+	    	   
+	    	 $("#video").append(newrowVideo);
+	    	 
+	    	 
+	    	 descripcion="";
+	    		$("#collapseTwo2").empty();
+	    		descripcion=
+	    			"<div class='card-body'>"+result[0].description+"</div>"
+	    		
+		    	   
+		    	 $("#collapseTwo2").append(descripcion);
+	    		
+	    		
+	    	img="";
+	    	$("#modalImg").empty();
+	    	img=
+    			"<img class='d-block w-100' src='images/"+result[0].pic+"' alt='First slide'>"
+    		
+	    	   
+	    	 $("#modalImg").append(img);
+	    	
+	    	
+	    	lekua="";
+	    	$("#datuak").empty();
+	    	lekua=
+    			"<div class='card-body'>Herria</div>"+
+    			"<div class='card-body'>"+result[0].city+"</div>"+
+	    		"<div class='card-body'>Eguna</div>"+
+		    	"<div class='card-body'>"+result[0].eventDay+"</div>"+
+	    		"<div class='card-body'>Hasiera</div>"+
+	    		"<div class='card-body'>"+result[0].eventStart+"</div>"+
+	    		"<div class='card-body'>Amaiera</div>"+
+	    		"<div class='card-body'>"+result[0].eventEnd+"</div>";
+
+	    	   
+	    	 $("#datuak").append(lekua);
+		},
+       	error : function(xhr) {
+   			alert("An error occured: " + xhr.status + " " + xhr.statusText);
+   		}
+	});
 });
+
+
+
 
 

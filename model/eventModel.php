@@ -48,7 +48,9 @@ class eventModel extends eventClass{
             $event->setCity($row['city']);
             $event->setDescription($row['description']);
             $event->setPic($row['pic']);
-            
+            $event->setBanner($row['banner']);
+            $event->setVideo($row['video']);
+            $event->setIdUser($row['idUser']);
            
             
             array_push($this->list,$event);
@@ -61,6 +63,39 @@ class eventModel extends eventClass{
         
         
     }
+    
+    
+    public function setEventsModal(){
+        $id=$this->getId();
+        $this->OpenConnect();
+        $sql="call  spFindEventById($id)";
+        $result = $this->link->query($sql);
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            
+            
+            $this->setId($row['id']);
+            $this->setTitle($row['title']);
+            $this->setEventDay($row['eventDay']);
+            $this->setEventStart($row['eventStart']);
+            $this->setEventEnd($row['eventEnd']);
+            $this->setCity($row['city']);
+            $this->setDescription($row['description']);
+            $this->setPic($row['pic']);
+            $this->setBanner($row['banner']);
+            $this->setVideo($row['video']);
+            
+            array_push($this->list,$this);
+           
+        }
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        
+    }
+    
+    
+    
+    
+    
     function getArrUsersCities()
     {
         

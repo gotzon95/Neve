@@ -6,8 +6,27 @@ class userClass {
     protected $password;
     protected $name;
     protected $surname;
+    protected $pic;
     protected $admin;
     
+    
+    
+    /**
+     * @return mixed
+     */
+    public function getPic()
+    {
+        return $this->pic;
+    }
+
+    /**
+     * @param mixed $pic
+     */
+    public function setPic($pic)
+    {
+        $this->pic = $pic;
+    }
+
     function getIdUser() {
         return $this->idUser;
     }

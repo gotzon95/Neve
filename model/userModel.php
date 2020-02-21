@@ -45,7 +45,10 @@ class userModel extends userClass{
             
             if (password_verify($this->getPassword(), $passwordEncripted))
             {
+                
                 $this->setIdUser($row['idUser']);
+                $this->setPic($row['pic']);
+                $this->setAdmin($row['admin']);
                 
                 $userExists=true;
             }
@@ -87,6 +90,32 @@ class userModel extends userClass{
         
         
     }
+    
+    public function insertUser()
+    {
+        $this->OpenConnect();
+        
+        $username=$this->username;
+        $password=$this->password;
+        $name=$this->name;
+        $surname=$this->surname;
+
+        
+        $options=['cost'=>10];
+        $encriptedPass=password_hash ($password,PASSWORD_BCRYPT,$options) ;
+        
+        $sql="call spInsertUser('$username','$encriptedPass','$name','$surname')";
+        $result= $this->link->query($sql);
+        
+        return $this->link->affected_rows;
+        
+        $this->CloseConnect();
+        
+    }
+    
+    
+    
+    
     function getArrUsers()
     {
         

@@ -19,6 +19,8 @@ if (($username !=null ) && ($password !=null )){
     {
         session_start();
         $_SESSION['id']=$user->getIdUser();
+        $_SESSION['pic']=$user->getPic();
+        $_SESSION['admin']=$user->getAdmin();
         $_SESSION['username']=$username;
        
         $response["username"] = $username;

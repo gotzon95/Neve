@@ -8,10 +8,40 @@ class eventClass {
     protected $city;
     protected $description;
     protected $pic;
+    protected $banner;
+    protected $video;
     protected $idUser;
     /**
      * @return mixed
      */
+    
+    
+    public function getBanner()
+    {
+        return $this->banner;
+    }
+
+    /**
+     * @param mixed $banner
+     */
+    public function setBanner($banner)
+    {
+        $this->banner = $banner;
+    }
+
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @param mixed $video
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+    }
+
     public function getId()
     {
         return $this->id;
