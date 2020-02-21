@@ -109,6 +109,7 @@
 
 
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -260,6 +261,76 @@
 <!--Modal: modalYT-->
 
 
+
+<!-- line modal -->
+<div class="modal fade" id="myModalNewEvent" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			
+			<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+		</div>
+		<div class="modal-body">
+			
+            <!-- content goes here -->
+			<form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Titulua</label>
+                <input type="text" class="form-control" id="title" placeholder="Titulua">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Eguna</label>
+                <input type="date" class="form-control" id="day" placeholder="Eguna">
+              </div>
+               <div class="form-group">
+                <label for="exampleInputPassword1">Hasiera ordua</label>
+                <input type="time" class="form-control" id="eventStart" placeholder="Hasiera ordua">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Amaiera ordua</label>
+                <input type="time" class="form-control" id="eventEnd" placeholder="Hasiera ordua">
+              </div>
+               <div class="form-group">
+                <label for="exampleInputPassword1">Herria</label>
+                <input type="text" class="form-control" id="city" placeholder="Herria">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Deskripzioa</label>
+                <input type="text" class="form-control" id="description" placeholder="Deskripzioa">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">Kartela</label>
+                </br>
+                <input type="file" id="banner">
+                
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">Taldearen Irudia</label>
+                </br>
+               <input type="file" id="pic">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Bideoa</label>
+                <input type="text" class="form-control" id="aaa" placeholder="Bideoa">
+              </div>
+              
+            </form>
+
+		</div>
+		<div class="modal-footer">
+			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+				</div>
+			
+				<div class="btn-group" role="group">
+					<button type="button" id="insertEvent" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

@@ -93,6 +93,34 @@ class eventModel extends eventClass{
     }
     
     
+    public function insertEvent()
+    {
+        $this->OpenConnect();
+        
+        $title=$this->title;
+        $day=$this->eventDay;
+        $eventStart=$this->eventStart;
+        $eventEnd=$this->eventEnd;
+        $city=$this->city;
+        $description=$this->description;
+        $bannername=$this->banner;
+        $picname=$this->pic;
+        $video=$this->video;
+        $idUser=$this->idUser;
+        
+        
+       
+        
+        $sql="call spInsertEvent('$title','$day','$eventStart','$eventEnd','$city','$description','$bannername','$picname','$video',$idUser)";
+        $result= $this->link->query($sql);
+        
+        return $this->link->affected_rows;
+        
+        $this->CloseConnect();
+        
+    }
+    
+    
     
     
     
